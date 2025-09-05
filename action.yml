@@ -1,0 +1,21 @@
+name: 'Rebase'
+description: 'Rebase a branch and force push it to remote'
+inputs:
+  base:
+    description: 'Base of the rebase operation'
+    required: true
+    default: ${{ github.event.repository.default_branch }}
+  branch:
+    description: 'Branch to rebase'
+    required: true
+  token:
+    description: 'Github token'
+    required: true
+    default: ${{ github.token }}
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.base }}
+    - ${{ inputs.branch }}
+    - ${{ inputs.token }}
