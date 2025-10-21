@@ -42,5 +42,5 @@ git remote update
 git checkout "${BASE}" --
 git checkout "${BRANCH}" --
 
-git rebase --autosquash --autostash --onto "${BASE}" "${BASE}" "${BRANCH}"
+git rebase --committer-date-is-author-date --autosquash --autostash --onto "${BASE}" "${BASE}" "${BRANCH}"
 git push --force origin "${BRANCH}"
